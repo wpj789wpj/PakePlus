@@ -1,0 +1,126 @@
+<!DOCTYPE html>
+<html lang="zh">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>无尽模式 - Pokémon Style Game</title>
+    <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+    <header>
+        <h1>无尽模式</h1>
+        <nav>
+            <ul class="nav-menu">
+                <li><a href="index.html">首页</a></li>
+                <li><a href="character-editor.html">角色编辑器</a></li>
+                <li><a href="shop.html">商城</a></li>
+                <li><a href="team.html">队伍配置</a></li>
+                <li><a href="inventory.html">背包</a></li>
+            </ul>
+        </nav>
+    </header>
+
+    <main class="game-container">
+        <div class="game-header">
+            <h2 class="game-title">第 <span id="level">1</span> 关</h2>
+            <div class="game-stats">
+                <span>队伍: <span id="team-count">0</span>/4</span>
+            </div>
+        </div>
+
+        <div class="battle-container">
+            <div class="battle-area">
+                <div class="player-side">
+                    <h3>我方</h3>
+                    <div class="player-character" id="player-character">
+                        <span>?</span>
+                    </div>
+                    <div class="character-info">
+                        <h4 id="player-name">未选择角色</h4>
+                        <div class="health-bar-container">
+                            <div class="bar-label">
+                                <span>生命值</span>
+                                <span id="player-health-text">0/0</span>
+                            </div>
+                            <div class="bar-background">
+                                <div class="health-bar" id="player-health-bar" style="width: 100%"></div>
+                            </div>
+                        </div>
+                        <div class="mana-bar-container">
+                            <div class="bar-label">
+                                <span>魔法值</span>
+                                <span id="player-mana-text">0/0</span>
+                            </div>
+                            <div class="bar-background">
+                                <div class="mana-bar" id="player-mana-bar" style="width: 100%"></div>
+                            </div>
+                        </div>
+                        <div class="rage-bar-container">
+                            <div class="bar-label">
+                                <span>怒气值</span>
+                                <span id="player-rage-text">0/0</span>
+                            </div>
+                            <div class="bar-background">
+                                <div class="rage-bar" id="player-rage-bar" style="width: 0%; background: linear-gradient(to right, #ff9900, #ff0000)"></div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="versus">VS</div>
+
+                <div class="enemy-side">
+                    <h3>敌方</h3>
+                    <div class="enemy-character" id="enemy-character">
+                        <span>?</span>
+                    </div>
+                    <div class="character-info">
+                        <h4 id="enemy-name">未出现敌人</h4>
+                        <div class="health-bar-container">
+                            <div class="bar-label">
+                                <span>生命值</span>
+                                <span id="enemy-health-text">0/0</span>
+                            </div>
+                            <div class="bar-background">
+                                <div class="health-bar" id="enemy-health-bar" style="width: 100%"></div>
+                            </div>
+                        </div>
+                        <div class="rage-bar-container">
+                            <div class="bar-label">
+                                <span>怒气值</span>
+                                <span id="enemy-rage-text">0/0</span>
+                            </div>
+                            <div class="bar-background">
+                                <div class="rage-bar" id="enemy-rage-bar" style="width: 0%; background: linear-gradient(to right, #ff9900, #ff0000)"></div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <div class="skills-container" id="skills-container">
+                <!-- 技能按钮将通过JavaScript动态生成 -->
+            </div>
+
+            <div class="battle-log">
+                <h3>战斗日志</h3>
+                <div id="battle-log-content">
+                    <p>欢迎来到无尽模式！请选择角色开始战斗。</p>
+                </div>
+            </div>
+        </div>
+    </main>
+
+    <div id="level-up-modal" class="modal" style="display: none;">
+        <div class="level-up-container">
+            <h2>关卡完成！请选择一项强化：</h2>
+            <div class="choices-container" id="choices-container">
+                <!-- 选择项将通过JavaScript动态生成 -->
+            </div>
+        </div>
+    </div>
+
+    <script src="script.js"></script>
+    <script src="endless.js"></script>
+</body>
+</html>
