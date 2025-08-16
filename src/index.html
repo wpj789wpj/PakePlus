@@ -1,32 +1,163 @@
 <!DOCTYPE html>
-<html lang="en">
-    <head>
-        <meta charset="UTF-8" />
-        <link rel="stylesheet" href="styles.css" />
-        <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-        <title>PakePlus App</title>
-        <script type="module" src="/main.js" defer></script>
-    </head>
+<html lang="zh">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Pokémon Style Game</title>
+    <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+    <header>
+        <h1>Pokémon Style Game</h1>
+        <nav>
+            <ul class="nav-menu">
+                <li><a href="index.html">首页</a></li>
+                <li><a href="endless.html">无尽模式</a></li>
+                <li><a href="character-editor.html">角色编辑器</a></li>
+                <li><a href="shop.html">商城</a></li>
+                <li><a href="team.html">队伍配置</a></li>
+                <li><a href="inventory.html">背包</a></li>
+            </ul>
+        </nav>
+    </header>
 
-    <body>
-        <main class="container">
-            <h1>Welcome to PakePlus</h1>
-            <form class="row" id="greet-form">
-                <input id="inputValue" placeholder="Enter a something..." />
-            </form>
-            <div class="resultBox">
-                <span>result: </span>
-                <span id="result"></span>
+    <main>
+        <section class="hero">
+            <h2>欢迎来到神奇的口袋妖怪世界</h2>
+            <p>在这里，你可以收集、培养和战斗各种独特的角色！</p>
+            <div class="cta-buttons">
+                <a href="endless.html" class="btn primary">开始冒险</a>
+                <a href="character-editor.html" class="btn secondary">创建角色</a>
             </div>
-            <div class="invokeBox">
-                <button id="openUrl">open_url_browser</button>
-                <button id="openUrlNew">open_url_new</button>
-                <button id="runCommand">run_command</button>
-                <button id="downloadFile">download_file</button>
-                <button id="getExeDir">get_exe_dir</button>
-                <button id="getEnvVar">get_env_var</button>
-                <button id="findPort">find_port</button>
+        </section>
+
+        <section class="features">
+            <div class="feature-card">
+                <h3>丰富的角色系统</h3>
+                <p>收集各种属性的角色，每个角色都有独特的技能和能力。</p>
             </div>
-        </main>
-    </body>
+            <div class="feature-card">
+                <h3>策略战斗</h3>
+                <p>利用属性相克，制定最佳战斗策略。</p>
+            </div>
+            <div class="feature-card">
+                <h3>角色培养</h3>
+                <p>通过战斗不断提升角色能力，解锁新技能。</p>
+            </div>
+            <div class="feature-card">
+                <h3>无尽挑战</h3>
+                <p>在无尽模式中挑战更强的敌人，测试你的队伍实力。</p>
+            </div>
+        </section>
+
+        <!-- 属性克制关系解释 -->
+        <section class="type-effectiveness">
+            <h2>属性克制关系</h2>
+            <div class="effectiveness-explanation">
+                <p>在游戏中，不同属性之间存在克制关系，合理利用属性克制可以在战斗中获得巨大优势：</p>
+                <ul>
+                    <li><span class="effectiveness-super">效果拔群</span>：伤害加倍</li>
+                    <li><span class="effectiveness-normal">一般</span>：正常伤害</li>
+                    <li><span class="effectiveness-not">效果不好</span>：伤害减半</li>
+                    <li><span class="effectiveness-none">无效</span>：无伤害</li>
+                </ul>
+            </div>
+            
+            <div class="effectiveness-table">
+                <table>
+                    <thead>
+                        <tr>
+                            <th>攻击\防御</th>
+                            <th>火</th>
+                            <th>水</th>
+                            <th>土</th>
+                            <th>木</th>
+                            <th>光</th>
+                            <th>暗</th>
+                            <th>无</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr>
+                            <th>火</th>
+                            <td>一般</td>
+                            <td>一般</td>
+                            <td>效果拔群</td>
+                            <td>效果不好</td>
+                            <td>一般</td>
+                            <td>一般</td>
+                            <td>一般</td>
+                        </tr>
+                        <tr>
+                            <th>水</th>
+                            <td>效果拔群</td>
+                            <td>效果不好</td>
+                            <td>一般</td>
+                            <td>一般</td>
+                            <td>一般</td>
+                            <td>一般</td>
+                            <td>一般</td>
+                        </tr>
+                        <tr>
+                            <th>土</th>
+                            <td>效果不好</td>
+                            <td>效果拔群</td>
+                            <td>效果不好</td>
+                            <td>一般</td>
+                            <td>一般</td>
+                            <td>一般</td>
+                            <td>一般</td>
+                        </tr>
+                        <tr>
+                            <th>木</th>
+                            <td>一般</td>
+                            <td>效果不好</td>
+                            <td>效果拔群</td>
+                            <td>效果不好</td>
+                            <td>一般</td>
+                            <td>一般</td>
+                            <td>一般</td>
+                        </tr>
+                        <tr>
+                            <th>光</th>
+                            <td>一般</td>
+                            <td>一般</td>
+                            <td>一般</td>
+                            <td>一般</td>
+                            <td>效果不好</td>
+                            <td>效果不好</td>
+                            <td>一般</td>
+                        </tr>
+                        <tr>
+                            <th>暗</th>
+                            <td>一般</td>
+                            <td>一般</td>
+                            <td>一般</td>
+                            <td>一般</td>
+                            <td>效果不好</td>
+                            <td>效果不好</td>
+                            <td>一般</td>
+                        </tr>
+                        <tr>
+                            <th>无</th>
+                            <td>一般</td>
+                            <td>一般</td>
+                            <td>一般</td>
+                            <td>一般</td>
+                            <td>一般</td>
+                            <td>一般</td>
+                            <td>一般</td>
+                        </tr>
+                    </tbody>
+                </table>
+            </div>
+        </section>
+    </main>
+
+    <footer>
+        <p>&copy; 2023 Pokémon Style Game. 保留所有权利。</p>
+    </footer>
+
+    <script src="script.js"></script>
+</body>
 </html>
