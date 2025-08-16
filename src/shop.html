@@ -1,0 +1,133 @@
+<!DOCTYPE html>
+<html lang="zh">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>玩家社区 - Pokémon Style Game</title>
+    <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+    <header>
+        <h1>商城</h1>
+        <nav>
+            <ul class="nav-menu">
+                <li><a href="index.html">首页</a></li>
+                <li><a href="endless.html">无尽模式</a></li>
+                <li><a href="character-editor.html">角色编辑器</a></li>
+                <li><a href="shop.html">商城</a></li>
+                <li><a href="team.html">队伍配置</a></li>
+                <li><a href="inventory.html">背包</a></li>
+            </ul>
+        </nav>
+    </header>
+
+    <main class="game-container">
+        <h2>社区市场</h2>
+        <p>在这里可以发布和下载角色、技能、被动技能、回蓝机制和大招</p>
+        
+        <div class="shop-controls">
+            <button id="publish-btn" class="btn primary">发布内容</button>
+            <div class="search-box">
+                <input type="text" id="search-input" placeholder="搜索...">
+                <select id="category-filter">
+                    <option value="all">全部类别</option>
+                    <option value="characters">角色</option>
+                    <option value="skills">技能</option>
+                    <option value="passives">被动技能</option>
+                    <option value="manaregen">回蓝机制</option>
+                    <option value="ultimates">大招</option>
+                </select>
+            </div>
+        </div>
+        
+        <div class="community-tabs">
+            <button class="tab-btn active" data-tab="characters">角色</button>
+            <button class="tab-btn" data-tab="skills">技能</button>
+            <button class="tab-btn" data-tab="passives">被动技能</button>
+            <button class="tab-btn" data-tab="manaregen">回蓝机制</button>
+            <button class="tab-btn" data-tab="ultimates">大招</button>
+        </div>
+        
+        <div class="community-content">
+            <div id="characters-tab" class="tab-content active">
+                <h3>社区角色</h3>
+                <div class="community-items" id="community-characters">
+                    <!-- 角色将通过JavaScript动态生成 -->
+                </div>
+            </div>
+            
+            <div id="skills-tab" class="tab-content">
+                <h3>社区技能</h3>
+                <div class="community-items" id="community-skills">
+                    <!-- 技能将通过JavaScript动态生成 -->
+                </div>
+            </div>
+            
+            <div id="passives-tab" class="tab-content">
+                <h3>社区被动技能</h3>
+                <div class="community-items" id="community-passives">
+                    <!-- 被动技能将通过JavaScript动态生成 -->
+                </div>
+            </div>
+            
+            <div id="manaregen-tab" class="tab-content">
+                <h3>社区回蓝机制</h3>
+                <div class="community-items" id="community-manaregen">
+                    <!-- 回蓝机制将通过JavaScript动态生成 -->
+                </div>
+            </div>
+            
+            <div id="ultimates-tab" class="tab-content">
+                <h3>社区大招</h3>
+                <div class="community-items" id="community-ultimates">
+                    <!-- 大招将通过JavaScript动态生成 -->
+                </div>
+            </div>
+        </div>
+        
+        <!-- 发布内容模态框 -->
+        <div id="publish-modal" class="modal" style="display: none;">
+            <div class="modal-content">
+                <span class="close-modal">&times;</span>
+                <h2>发布内容</h2>
+                <form id="publish-form">
+                    <div class="form-group">
+                        <label for="publish-category">类别</label>
+                        <select id="publish-category" required>
+                            <option value="">请选择类别</option>
+                            <option value="characters">角色</option>
+                            <option value="skills">技能</option>
+                            <option value="passives">被动技能</option>
+                            <option value="manaregen">回蓝机制</option>
+                            <option value="ultimates">大招</option>
+                        </select>
+                    </div>
+                    
+                    <div class="form-group">
+                        <label for="publish-name">名称</label>
+                        <input type="text" id="publish-name" required>
+                    </div>
+                    
+                    <div class="form-group">
+                        <label for="publish-description">描述</label>
+                        <textarea id="publish-description" rows="4" required></textarea>
+                    </div>
+                    
+                    <div class="form-group">
+                        <label for="publish-content">内容 (JSON格式)</label>
+                        <textarea id="publish-content" rows="10" required></textarea>
+                    </div>
+                    
+                    <div class="form-actions">
+                        <button type="submit" class="btn primary">发布</button>
+                        <button type="button" class="btn secondary cancel-publish">取消</button>
+                    </div>
+                </form>
+            </div>
+        </div>
+    </main>
+
+    <script src="script.js"></script>
+    <script src="shop.js"></script>
+</body>
+</html>
