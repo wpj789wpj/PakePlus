@@ -1,0 +1,210 @@
+<!DOCTYPE html>
+<html lang="zh">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>角色编辑器 - Pokémon Style Game</title>
+    <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+    <header>
+        <h1>角色编辑器</h1>
+        <nav>
+            <ul class="nav-menu">
+                <li><a href="index.html">首页</a></li>
+                <li><a href="endless.html">无尽模式</a></li>
+                <li><a href="character-editor.html">角色编辑器</a></li>
+                <li><a href="shop.html">商城</a></li>
+                <li><a href="team.html">队伍配置</a></li>
+                <li><a href="inventory.html">背包</a></li>
+            </ul>
+        </nav>
+    </header>
+
+    <main class="game-container">
+        <h2>创建/编辑角色</h2>
+        
+        <div class="editor-container">
+            <form id="character-form">
+                <div class="form-group">
+                    <label for="character-name">角色名称</label>
+                    <input type="text" id="character-name" required>
+                </div>
+                
+                <div class="form-group">
+                    <label for="character-type">角色属性</label>
+                    <select id="character-type" required>
+                        <option value="">请选择属性</option>
+                        <option value="fire">火</option>
+                        <option value="water">水</option>
+                        <option value="earth">土</option>
+                        <option value="wood">木</option>
+                        <option value="light">光</option>
+                        <option value="dark">暗</option>
+                        <option value="none">无</option>
+                    </select>
+                </div>
+                
+                <div class="form-row" style="display: flex; gap: 1rem; flex-wrap: wrap;">
+                    <div class="form-group" style="flex: 1; min-width: 150px;">
+                        <label for="character-health">生命值</label>
+                        <input type="number" id="character-health" min="1" max="999" value="100" required>
+                    </div>
+                    
+                    <div class="form-group" style="flex: 1; min-width: 150px;">
+                        <label for="character-mana">魔法值</label>
+                        <input type="number" id="character-mana" min="0" max="999" value="50" required>
+                    </div>
+                    
+                    <div class="form-group" style="flex: 1; min-width: 150px;">
+                        <label for="character-rage">怒气值</label>
+                        <input type="number" id="character-rage" min="0" max="999" value="100" required>
+                    </div>
+                </div>
+                
+                <div class="form-row" style="display: flex; gap: 1rem; flex-wrap: wrap;">
+                    <div class="form-group" style="flex: 1; min-width: 150px;">
+                        <label for="character-attack">攻击力</label>
+                        <input type="number" id="character-attack" min="1" max="999" value="20" required>
+                    </div>
+                    
+                    <div class="form-group" style="flex: 1; min-width: 150px;">
+                        <label for="character-defense">防御力</label>
+                        <input type="number" id="character-defense" min="1" max="999" value="15" required>
+                    </div>
+                </div>
+                
+                <div class="collapsible">
+                    <div class="collapsible-header" id="skills-header">
+                        <span>技能选择</span>
+                        <span class="expand-icon">▼</span>
+                    </div>
+                    <div class="collapsible-content" id="skills-content">
+                        <div class="form-group">
+                            <div class="search-box" style="margin-bottom: 1rem;">
+                                <input type="text" id="skills-search" placeholder="搜索技能...">
+                            </div>
+                            <label for="character-skills">主动技能</label>
+                            <select id="character-skills" multiple size="5">
+                                <!-- 技能选项将通过JavaScript动态生成 -->
+                            </select>
+                            <small>按住 Ctrl (Windows) 或 Command (Mac) 选择多个技能</small>
+                            <div id="selected-skills-preview" class="selection-preview"></div>
+                        </div>
+                    </div>
+                </div>
+                
+                <div class="collapsible">
+                    <div class="collapsible-header" id="passives-header">
+                        <span>被动技能选择</span>
+                        <span class="expand-icon">▼</span>
+                    </div>
+                    <div class="collapsible-content" id="passives-content">
+                        <div class="form-group">
+                            <div class="search-box" style="margin-bottom: 1rem;">
+                                <input type="text" id="passives-search" placeholder="搜索被动技能...">
+                            </div>
+                            <label for="character-passives">被动技能</label>
+                            <select id="character-passives" multiple size="4">
+                                <!-- 被动技能选项将通过JavaScript动态生成 -->
+                            </select>
+                            <small>按住 Ctrl (Windows) 或 Command (Mac) 选择多个被动技能</small>
+                            <div id="selected-passives-preview" class="selection-preview"></div>
+                        </div>
+                    </div>
+                </div>
+                
+                <div class="collapsible">
+                    <div class="collapsible-header" id="manaregen-header">
+                        <span>自动回蓝机制</span>
+                        <span class="expand-icon">▼</span>
+                    </div>
+                    <div class="collapsible-content" id="manaregen-content">
+                        <div class="form-group">
+                            <div class="search-box" style="margin-bottom: 1rem;">
+                                <input type="text" id="manaregen-search" placeholder="搜索回蓝机制...">
+                            </div>
+                            <label for="character-manaregen">自动回蓝机制</label>
+                            <select id="character-manaregen">
+                                <option value="">无</option>
+                                <!-- 自动回蓝机制选项将通过JavaScript动态生成 -->
+                            </select>
+                            <div id="selected-manaregen-preview" class="selection-preview"></div>
+                        </div>
+                    </div>
+                </div>
+                
+                <div class="collapsible">
+                    <div class="collapsible-header" id="ultimates-header">
+                        <span>大招选择</span>
+                        <span class="expand-icon">▼</span>
+                    </div>
+                    <div class="collapsible-content" id="ultimates-content">
+                        <div class="form-group">
+                            <div class="search-box" style="margin-bottom: 1rem;">
+                                <input type="text" id="ultimates-search" placeholder="搜索大招...">
+                            </div>
+                            <label for="character-ultimates">大招</label>
+                            <select id="character-ultimates" multiple size="4">
+                                <!-- 大招选项将通过JavaScript动态生成 -->
+                            </select>
+                            <small>按住 Ctrl (Windows) 或 Command (Mac) 选择多个大招</small>
+                            <div id="selected-ultimates-preview" class="selection-preview"></div>
+                        </div>
+                    </div>
+                </div>
+                
+                <div class="form-group">
+                    <label for="character-description">角色描述</label>
+                    <textarea id="character-description" rows="4" placeholder="请输入角色描述..."></textarea>
+                    <div class="description-preview" id="description-preview">
+                        <p class="description-text short" id="description-text">暂无描述</p>
+                        <button type="button" class="toggle-description" id="toggle-description" style="display: none;">展开</button>
+                    </div>
+                </div>
+                
+                <div class="form-group">
+                    <label for="character-image">角色图像 (URL)</label>
+                    <input type="text" id="character-image" placeholder="输入图像URL或留空使用默认">
+                </div>
+                
+                <div class="form-group">
+                    <label for="character-json">或导入JSON</label>
+                    <textarea id="character-json" rows="6" placeholder='{"name": "角色名", "type": "fire", "maxHealth": 100, ...}'></textarea>
+                    <button type="button" id="import-json-btn">导入JSON</button>
+                </div>
+                
+                <div class="form-actions" style="display: flex; gap: 1rem; flex-wrap: wrap;">
+                    <button type="submit" class="btn primary">保存角色</button>
+                    <button type="button" id="export-json-btn" class="btn secondary">导出为JSON</button>
+                    <button type="button" id="reset-form-btn" class="btn">重置表单</button>
+                </div>
+            </form>
+            
+            <div class="character-preview">
+                <h3>角色预览</h3>
+                <div class="preview-image" id="preview-image">
+                    <span>?</span>
+                </div>
+                <div id="preview-info">
+                    <h4 id="preview-name">未命名角色</h4>
+                    <p id="preview-type">属性: 未选择</p>
+                    <p id="preview-stats">生命值: 100 | 魔法值: 50 | 怒气值: 100</p>
+                    <p id="preview-desc" class="description-text short">暂无描述</p>
+                    <button type="button" class="toggle-description" id="preview-toggle-description" style="display: none;">展开</button>
+                </div>
+            </div>
+        </div>
+        
+        <div class="character-grid">
+            <h3>已保存的角色</h3>
+            <div id="saved-characters">
+                <!-- 角色将通过JavaScript动态生成 -->
+            </div>
+        </div>
+    </main>
+
+    <script src="script.js"></script>
+    <script src="character-editor.js"></script>
+</body>
+</html>
