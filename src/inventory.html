@@ -1,0 +1,85 @@
+<!DOCTYPE html>
+<html lang="zh">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>背包 - Pokémon Style Game</title>
+    <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+    <header>
+        <h1>背包</h1>
+        <nav>
+            <ul class="nav-menu">
+                <li><a href="index.html">首页</a></li>
+                <li><a href="endless.html">无尽模式</a></li>
+                <li><a href="character-editor.html">角色编辑器</a></li>
+                <li><a href="shop.html">商城</a></li>
+                <li><a href="team.html">队伍配置</a></li>
+            </ul>
+        </nav>
+    </header>
+
+    <main class="game-container">
+        <h2>我的背包</h2>
+        
+        <div class="inventory-controls">
+            <div class="search-box">
+                <input type="text" id="inventory-search" placeholder="搜索背包内容...">
+            </div>
+            <div class="layout-controls">
+                <button id="grid-layout" class="layout-btn active">网格布局</button>
+                <button id="list-layout" class="layout-btn">列表布局</button>
+            </div>
+        </div>
+        
+        <div class="inventory-tabs">
+            <button class="tab-btn active" data-tab="characters">角色</button>
+            <button class="tab-btn" data-tab="skills">技能</button>
+            <button class="tab-btn" data-tab="passives">被动技能</button>
+            <button class="tab-btn" data-tab="manaregen">回蓝机制</button>
+            <button class="tab-btn" data-tab="ultimates">大招</button>
+        </div>
+        
+        <div class="inventory-content">
+            <div id="characters-tab" class="tab-content active">
+                <h3>我的角色</h3>
+                <div class="character-grid" id="inventory-characters">
+                    <!-- 角色将通过JavaScript动态生成 -->
+                </div>
+            </div>
+            
+            <div id="skills-tab" class="tab-content">
+                <h3>我的技能</h3>
+                <div class="items-grid" id="inventory-skills">
+                    <!-- 技能将通过JavaScript动态生成 -->
+                </div>
+            </div>
+            
+            <div id="passives-tab" class="tab-content">
+                <h3>我的被动技能</h3>
+                <div class="items-grid" id="inventory-passives">
+                    <!-- 被动技能将通过JavaScript动态生成 -->
+                </div>
+            </div>
+            
+            <div id="manaregen-tab" class="tab-content">
+                <h3>我的回蓝机制</h3>
+                <div class="items-grid" id="inventory-manaregen">
+                    <!-- 回蓝机制将通过JavaScript动态生成 -->
+                </div>
+            </div>
+            
+            <div id="ultimates-tab" class="tab-content">
+                <h3>我的大招</h3>
+                <div class="items-grid" id="inventory-ultimates">
+                    <!-- 大招将通过JavaScript动态生成 -->
+                </div>
+            </div>
+        </div>
+    </main>
+
+    <script src="script.js"></script>
+    <script src="inventory.js"></script>
+</body>
+</html>
