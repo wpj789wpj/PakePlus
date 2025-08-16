@@ -1,0 +1,65 @@
+<!DOCTYPE html>
+<html lang="zh">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>队伍配置 - Pokémon Style Game</title>
+    <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+    <header>
+        <h1>队伍配置</h1>
+        <nav>
+            <ul class="nav-menu">
+                <li><a href="index.html">首页</a></li>
+                <li><a href="endless.html">无尽模式</a></li>
+                <li><a href="character-editor.html">角色编辑器</a></li>
+                <li><a href="shop.html">商城</a></li>
+                <li><a href="team.html">队伍配置</a></li>
+                <li><a href="inventory.html">背包</a></li>
+            </ul>
+        </nav>
+    </header>
+
+    <main class="game-container">
+        <h2>配置你的队伍</h2>
+        
+        <div class="team-management">
+            <div class="team-controls">
+                <input type="file" id="upload-character" accept=".json" style="display: none;">
+                <input type="file" id="upload-team" accept=".json" style="display: none;">
+                <button id="upload-character-btn" class="btn">上传角色</button>
+                <button id="upload-team-btn" class="btn">上传队伍</button>
+                <button id="save-team-btn" class="btn primary">保存队伍</button>
+                <button id="load-team-btn" class="btn secondary">加载队伍</button>
+            </div>
+            
+            <div class="team-container">
+                <div class="team-slots">
+                    <h3>当前队伍</h3>
+                    <div class="team-slots-container" id="team-slots">
+                        <!-- 队伍栏位将通过JavaScript动态生成 -->
+                    </div>
+                </div>
+                
+                <div class="available-characters">
+                    <h3>可用角色</h3>
+                    <div class="character-grid" id="available-characters">
+                        <!-- 可用角色将通过JavaScript动态生成 -->
+                    </div>
+                </div>
+            </div>
+            
+            <div class="team-stats">
+                <h3>队伍统计</h3>
+                <div id="team-stats-content">
+                    <!-- 队伍统计将通过JavaScript动态生成 -->
+                </div>
+            </div>
+        </div>
+    </main>
+
+    <script src="script.js"></script>
+    <script src="team.js"></script>
+</body>
+</html>
